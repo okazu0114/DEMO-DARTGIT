@@ -20,6 +20,18 @@ void main(List<String> args) {
   testSet.add('c');
   printTest("set result: " + testSet.toString());
 
+  // create & manipulate Map
+  printTest("----- MAP -----");
+  var testMap = {
+    'name': 'tokkyer',
+    'nickname': 'mltokky',
+  };
+  printTest("testMap(name): ${testMap['name']}");
+  printTest("testMap(nothing): ${testMap['nothing']}"); // not found key
+
+  print("");
+
+  // embedded string
   printTest("embedded string: $testConst");
 
   if (args.length == 0) {
