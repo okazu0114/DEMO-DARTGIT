@@ -10,11 +10,15 @@ string!!!
     .trim();
 
 void main(List<String> args) {
+  printTest("---- LIST -----");
+  // create & manipulate List
   var testList = [1, 2, 0, 9, 5, 12, 15, 7];
   testList.sort((a, b) => a.compareTo(b));
   testList.add(1);
   printTest("list sort result: " + testList.toString());
 
+  // create & manipulate Set
+  printTest("----- SET -----");
   var testSet = {'a', 'b', 'c'};
   testSet.add('d');
   testSet.add('c');
@@ -34,6 +38,7 @@ void main(List<String> args) {
   // embedded string
   printTest("embedded string: $testConst");
 
+  // set value to late initialization variable
   if (args.length == 0) {
     test2 = "nothing";
   } else {
@@ -46,19 +51,24 @@ void main(List<String> args) {
 
   int a = 125;
   printTest(a.toString());
+
+  // trying parse to integer from invalid string
   String b = "115x";
   printTest(int.tryParse(b) ?? -1);
 
   printTest("embedded part.2: ${a.toString()}");
 
+  // execute convert using "map" & print
   [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((e) => e * e).forEach((element) {
     printTest(element);
   });
 
+  // create instance from class
   var clazz = TestClass();
   printTest(clazz.toString());
   printTest(clazz.getFixedString());
 
+  // calculation
   printTest(10 / 6);
   printTest(10 ~/ 6);
   printTest(10 % 6);
@@ -67,7 +77,7 @@ void main(List<String> args) {
   print("10 ~/ 6 = ${10 ~/ 6}");
 }
 
-void printTest(Object message) {
+void printTest(Object? message) {
   print("test: " + message.toString());
 }
 
