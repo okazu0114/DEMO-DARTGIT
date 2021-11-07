@@ -73,12 +73,30 @@ void main(List<String> args) {
   printTest(10 ~/ 6);
   printTest(10 % 6);
 
-  print("10 / 6 = ${10 / 6}");
-  print("10 ~/ 6 = ${10 ~/ 6}");
+  printTest("10 / 6 = ${10 / 6}");
+  printTest("10 ~/ 6 = ${10 ~/ 6}");
+
+  // Named parameter test
+  printStringTest(message: "named parameter");
+  printStringTest(message: "named parameter with line feed", withLineFeed: true);
+  // optional positional parameter
+  printTest(12, true);
+
+  // Anonymous functions
+  var stringList = ['1', '2', '3', '4', '5'];
+  printTest("----- anonymous functions -----");
+  stringList.forEach((e) {
+    printTest("map1: ${e}");
+  });
+  stringList.forEach((e) => printTest("map2: ${e}"));
 }
 
-void printTest(Object? message) {
-  print("test: " + message.toString());
+void printTest(Object? message, [bool withLineFeed = false]) {
+  print("test: ${message.toString()}${withLineFeed ? '\n' : ''}");
+}
+
+void printStringTest({required String message, bool withLineFeed = false}) {
+  printTest(message, withLineFeed);
 }
 
 class TestClass {
