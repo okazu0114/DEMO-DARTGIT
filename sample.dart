@@ -89,6 +89,25 @@ void main(List<String> args) {
     printTest("map1: ${e}");
   });
   stringList.forEach((e) => printTest("map2: ${e}"));
+
+  // Type test operator(is, is!, as)
+  var value1 = 12.5;
+  printTest("$value1 is double? -> ${value1 is double}");
+  var value2 = 900;
+  printTest("$value2 is String? -> ${value2 is String}");
+  var value3 = "TEST";
+  printTest("$value3 is not int? -> ${value3 is! int}");
+  var customString = CustomString() as Object;
+  printTest("customString -> ${customString.toString()}");
+
+  // assign new value if value is null
+  var nonNullValue = "NEW VALUE";
+  String? maybeNullValue = "OLD VALUE";
+  maybeNullValue ??= nonNullValue;
+  printTest("assign value to non-null variable: $maybeNullValue");
+  maybeNullValue = null;
+  maybeNullValue ??= nonNullValue;
+  printTest("assign value to null variable: ${maybeNullValue}");
 }
 
 void printTest(Object? message, [bool withLineFeed = false]) {
@@ -107,5 +126,12 @@ class TestClass {
 
   String getFixedString() {
     return "固定文字列を返すよー";
+  }
+}
+
+class CustomString extends Object {
+  @override
+  String toString() {
+    return "CustomString";
   }
 }
