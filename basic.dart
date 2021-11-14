@@ -17,6 +17,11 @@ void main(List<String> args) {
   testList.add(1);
   printTest("list sort result: " + testList.toString());
 
+  // execute convert using "map" & print
+  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((e) => e * e).forEach((element) {
+    printTest(element);
+  });
+
   // create & manipulate Set
   printTest("----- SET -----");
   var testSet = {'a', 'b', 'c'};
@@ -58,11 +63,6 @@ void main(List<String> args) {
 
   printTest("embedded part.2: ${a.toString()}");
 
-  // execute convert using "map" & print
-  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((e) => e * e).forEach((element) {
-    printTest(element);
-  });
-
   // create instance from class
   var clazz = TestClass();
   printTest(clazz.toString());
@@ -89,25 +89,6 @@ void main(List<String> args) {
     printTest("map1: ${e}");
   });
   stringList.forEach((e) => printTest("map2: ${e}"));
-
-  // Type test operator(is, is!, as)
-  var value1 = 12.5;
-  printTest("$value1 is double? -> ${value1 is double}");
-  var value2 = 900;
-  printTest("$value2 is String? -> ${value2 is String}");
-  var value3 = "TEST";
-  printTest("$value3 is not int? -> ${value3 is! int}");
-  var customString = CustomString() as Object;
-  printTest("customString -> ${customString.toString()}");
-
-  // assign new value if value is null
-  var nonNullValue = "NEW VALUE";
-  String? maybeNullValue = "OLD VALUE";
-  maybeNullValue ??= nonNullValue;
-  printTest("assign value to non-null variable: $maybeNullValue");
-  maybeNullValue = null;
-  maybeNullValue ??= nonNullValue;
-  printTest("assign value to null variable: ${maybeNullValue}");
 }
 
 void printTest(Object? message, [bool withLineFeed = false]) {
@@ -126,12 +107,5 @@ class TestClass {
 
   String getFixedString() {
     return "固定文字列を返すよー";
-  }
-}
-
-class CustomString extends Object {
-  @override
-  String toString() {
-    return "CustomString";
   }
 }
