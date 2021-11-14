@@ -17,6 +17,22 @@ void main(List<String> args) {
   maybeNullValue = null;
   maybeNullValue ??= nonNullValue;
   print("assign value to null variable: ${maybeNullValue}");
+
+  // Conditional expression
+  var isPublic = true;
+  print("isPublic: ${isPublic ? "Yes" : "No"}");
+  String? input;
+  if (!isPublic) {
+    input = "public";
+  }
+  print("${input ?? "null"}");
+
+  // Cascade notation
+  var list = []
+    ..add("value1")
+    ..add("value2")
+    ..add("value3");
+  print(list);
 }
 
 class CustomString extends Object {
