@@ -50,23 +50,18 @@ void main(List<String> args) {
       case "PAUSE":
         print("--- operation PAUSE");
         break;
-      case "TEST1":
-        print("[1] operation TEST1");
-        break;
+      case "TEST1": // fall through
       case "TEST2":
-        print("[2] operation TEST2");
-        break;
       case "TEST3":
-        print("[3] operation TEST3");
+        var number = int.parse(operation.substring(4));
+        print("[$number] operation $operation");
         break;
       case "STOP":
         print("<-- operation STOP!! : END");
         break;
       default:
     }
-    if (operation != "STOP") {
-      sleep(Duration(milliseconds: 500));
-    }
+    sleep(Duration(milliseconds: 500));
   } while (operation != "STOP");
   print("");
 
