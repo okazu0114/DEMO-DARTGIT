@@ -73,6 +73,8 @@ extension ManipulationString on String {
   }
 }
 
+enum Color { red, green, blue, orange, white, black }
+
 void main(List<String> args) {
   var rect = new Rectangle();
   print(rect.toString());
@@ -94,4 +96,32 @@ void main(List<String> args) {
 
   var str = "abcdefg";
   print("$str -> ${str.shiftCharacter(1)}");
+
+  // using enumerated
+  print("Color (black): ${Color.black}");
+  print("  -> index: ${Color.black.index}, hashCode: ${Color.black.hashCode}");
+
+  // iterate enumerated
+  for (final color in Color.values) {
+    switch (color) {
+      case Color.red:
+        print("Color is RED!");
+        break;
+      case Color.green:
+        print("Color is GREEN!");
+        break;
+      case Color.blue:
+        print("Color is BLUE!");
+        break;
+      case Color.orange:
+        print("Color is ORANGE!");
+        break;
+      case Color.black:
+        print("Color is BLACK!");
+        break;
+      default:
+        print("Color is WHITE!");
+    }
+    print("  -> ${color.toString()}, index: ${color.index}, hashCode: ${color.hashCode}, runtimeType: ${color.runtimeType}");
+  }
 }
